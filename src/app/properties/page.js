@@ -18,6 +18,11 @@ export default function PropertiesPage() {
           Add a new property
         </Link>
       </div>
+      <div>
+        <Link href={"/properties/12"} className={"m-8 text-blue-500"}>
+          property #12
+        </Link>
+      </div>
     </div>
   );
 }
