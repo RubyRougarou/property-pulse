@@ -1,15 +1,11 @@
-import Image from "next/image";
-import Link from "next/link";
+import Hero from "@/app/_components/Hero";
+import InfoBoxes from "@/app/_components/InfoBoxes";
 
 export default function Home() {
   return (
-    <div>
-      Home page
-      <div>
-        <Link href={"/properties"} className={"m-8 text-blue-500"}>
-          See all properties
-        </Link>
-      </div>
-    </div>
+    <>
+      <Hero />
+      <InfoBoxes />
+    </>
   );
 }
