@@ -1,4 +1,4 @@
-import properties from "@/properties.json";
+import properties from "../../properties.json";
 import PropertyCard from "@/app/_components/PropertyCard";
 
 export const metadata = {
