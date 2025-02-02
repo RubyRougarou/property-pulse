@@ -1,11 +1,12 @@
 import connectDb from "../../../../configs/db";
+import Property from "../../../../models/property";
 
+//GET
 export async function GET(req) {
+  await connectDb();
   try {
-    await connectDb();
-    return new Response(JSON.stringify({ message: "First API route!" }), {
-      status: 200,
-    });
+    const properties = await Property.find({});
+    return new Response(JSON.stringify(properties), { status: 200 });
   } catch (err) {
     console.log(err);
     return new Response("the worst api route ever!", { status: 500 });

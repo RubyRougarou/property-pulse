@@ -8,7 +8,6 @@ import {
   FaMoneyBill,
   FaMapMarker,
 } from "react-icons/fa";
-import pics from "./../../public/images/properties/a1.png";
 
 const PropertyCard = ({ property }) => {
   function getRateDisplay() {
@@ -23,7 +22,7 @@ const PropertyCard = ({ property }) => {
     <div className="rounded-xl shadow-md relative">
       <Image
         className="w-full h-auto rounded-t-xl"
-        src={pics}
+        src={`/properties/${property.images[0]}`}
         alt="ss"
         height={0}
         width={0}
