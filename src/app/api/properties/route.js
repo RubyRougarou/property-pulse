@@ -3,8 +3,8 @@ import Property from "../../../../models/property";
 
 //GET
 export async function GET(req) {
-  await connectDb();
   try {
+    await connectDb();
     const properties = await Property.find({});
     return new Response(JSON.stringify(properties), { status: 200 });
   } catch (err) {
