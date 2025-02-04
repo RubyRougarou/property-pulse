@@ -1,13 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // images: {
-  //   localPatterns: [
-  //     {
-  //       pathname: "./../../public/images/**",
-  //       search: "",
-  //     },
-  //   ],
-  // },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
+        pathname: "**",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
