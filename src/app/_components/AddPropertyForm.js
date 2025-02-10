@@ -20,7 +20,7 @@ const AddPropertyForm = () => {
     square_feet: 1800,
     amenities: [],
     rates: {
-      nightly: "",
+      nightly: 0,
       weekly: 1200,
       monthly: 4500,
     },
@@ -101,7 +101,11 @@ const AddPropertyForm = () => {
 
   return (
     mounted && (
-      <form>
+      <form
+        action={"/api/properties"}
+        method={"POST"}
+        encType={"multipart/form-data"}
+      >
         <h2 className="text-3xl text-center font-semibold mb-6">
           Add Property
         </h2>
@@ -342,7 +346,7 @@ const AddPropertyForm = () => {
                 name="amenities"
                 defaultValue="24/7 Security"
                 className="mr-2"
-                checked={fields.amenities.includes("4/7 Security")}
+                checked={fields.amenities.includes("24/7 Security")}
                 onChange={handleAmenitiesChange}
               />
               <label htmlFor="amenity_24_7_security">24/7 Security</label>
@@ -508,7 +512,7 @@ const AddPropertyForm = () => {
           <input
             type="text"
             id="seller_name"
-            name="seller_info.name."
+            name="seller_info.name"
             className="border rounded w-full py-2 px-3"
             placeholder="Name"
             defaultValue={fields.seller_info.name}
@@ -556,7 +560,8 @@ const AddPropertyForm = () => {
             htmlFor="images"
             className="block text-gray-700 font-bold mb-2"
           >
-            Images (Select up to 4 images)
+            Images (Select up to 4 images){" "}
+            <span className={"text-red-700"}>*</span>
           </label>
           <input
             type="file"
@@ -565,6 +570,7 @@ const AddPropertyForm = () => {
             className="border rounded w-full py-2 px-3"
             accept="image/*"
             multiple
+            required
             onChange={handleImagesChange}
           />
         </div>
