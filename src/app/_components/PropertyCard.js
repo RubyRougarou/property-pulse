@@ -54,7 +54,7 @@ const PropertyCard = ({ property }) => {
         </div>
 
         <div className="flex justify-center gap-4 text-green-900 text-sm mb-4">
-          {property.rates.nightly && (
+          {property.rates.nightly !== 0 && (
             <p>
               <FaMoneyBill className={"inline mr-0.5"} /> nightly
             </p>
