@@ -18,13 +18,13 @@ export async function GET(req) {
 //POST
 export async function POST(req) {
   try {
-    await connectDb();
-
     const userSession = await getUserSession();
     if (!userSession || !userSession.userId)
       return new Response("Unauthorized!", { status: 401 });
 
     const { userId } = userSession;
+
+    await connectDb();
 
     const formData = await req.formData();
 

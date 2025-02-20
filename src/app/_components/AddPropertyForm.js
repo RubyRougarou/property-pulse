@@ -6,27 +6,27 @@ const AddPropertyForm = () => {
   // this is to get rid of the <div> in <div> html warning
   const [mounted, setMounted] = useState(false);
   const [fields, setFields] = useState({
-    type: "Apartment",
-    name: "Property name",
+    type: "",
+    name: "",
     description: "",
     location: {
       street: "",
-      city: "New York",
-      state: "NW",
+      city: "",
+      state: "",
       zipcode: "",
     },
-    beds: 2,
-    baths: 1,
-    square_feet: 1800,
+    beds: "",
+    baths: "",
+    square_feet: "",
     amenities: [],
     rates: {
-      nightly: 0,
-      weekly: 1200,
-      monthly: 4500,
+      nightly: "",
+      weekly: "",
+      monthly: "",
     },
     seller_info: {
       name: "",
-      email: "seller@info.com",
+      email: "",
       phone: "",
     },
     images: [],
