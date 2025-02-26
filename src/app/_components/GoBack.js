@@ -8,12 +8,13 @@ const GoBack = ({ to }) => {
 
   return (
     <section>
-      <div className="container m-auto py-6 px-6">
+      <div className="container m-auto py-6 px-6 flex items-center">
         <Link
           href={`/${to}`}
-          className="text-blue-500 hover:text-blue-600 flex items-center"
+          className="text-blue-500 hover:text-blue-600 flex items-center "
         >
-          <FaArrowLeft className={"mr-2"} /> Back to {uppercaseTo}
+          <FaArrowLeft className={"mr-2 text-blue-500 hover:text-blue-600"} />{" "}
+          Back to {uppercaseTo}
         </Link>
       </div>
     </section>
