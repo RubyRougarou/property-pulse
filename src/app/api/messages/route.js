@@ -1,8 +1,31 @@
 import connectDb from "../../../../configs/db";
-import Message from "../../../../models/Message";
+import Message from "../../../../models/message";
 import { getUserSession } from "@/app/_libs/getUserSession";
 
 export const dynamic = "force-dynamic";
+
+export const GET = async (req) => {
+  try {
+    await connectDb();
+
+    const userSession = await getUserSession();
+    if (!userSession || !userSession.userId) {
+      return new Response("You must log in first!", { status: 401 });
+    }
+    const { userId } = userSession;
+
+    const messages = await Message.find({ recipient: userId })
+      .populate("sender", "username")
+      .populate("property", "name");
+
+    return new Response(JSON.stringify(messages), { status: 200 });
+  } catch (err) {
+    console.log(err);
+    return new Response(JSON.stringify({ message: "Something went wrong!" }), {
+      status: 500,
+    });
+  }
+};
 
 export const POST = async (req) => {
   try {
