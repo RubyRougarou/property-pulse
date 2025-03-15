@@ -5,6 +5,7 @@ import "@/assets/styles/globals.css";
 import Navbar from "@/app/_components/Navbar";
 import Footer from "@/app/_components/Footer";
 import AuthProvider from "@/app/_components/AuthProvider";
+import { UnreadMessagesProvider } from "@/app/_context/UnreadMessagesContext";
 
 export const metadata = {
   title: "Property Pulse | Find the perfect rental",
@@ -14,15 +15,17 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <AuthProvider>
-      <html lang="en">
-        <body>
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
-          <ToastContainer />
-        </body>
-      </html>
-    </AuthProvider>
+    <UnreadMessagesProvider>
+      <AuthProvider>
+        <html lang="en">
+          <body>
+            <Navbar />
+            <main>{children}</main>
+            <Footer />
+            <ToastContainer autoClose={3000} position={"top-center"} />
+          </body>
+        </html>
+      </AuthProvider>
+    </UnreadMessagesProvider>
   );
 }
