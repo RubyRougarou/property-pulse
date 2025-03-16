@@ -1,6 +1,8 @@
 import connectDb from "../../../../../../configs/db";
 import Property from "../../../../../../models/property";
 
+export const dynamic = "force-dynamic";
+
 //GET
 export async function GET(req, { params }) {
   try {
