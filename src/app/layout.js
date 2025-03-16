@@ -1,7 +1,8 @@
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 import "@/assets/styles/globals.css";
+import "react-toastify/dist/ReactToastify.css";
+import "photoswipe/dist/photoswipe.css";
 import Navbar from "@/app/_components/Navbar";
 import Footer from "@/app/_components/Footer";
 import AuthProvider from "@/app/_components/AuthProvider";
