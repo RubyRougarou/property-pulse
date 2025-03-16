@@ -1,5 +1,6 @@
 import SearchPropertyForm from "@/app/_components/SearchPropertyForm";
 import Properties from "@/app/_components/Properties";
+import Pagination from "@/app/_components/Pagination";
 
 export default function PropertiesPage() {
   return (

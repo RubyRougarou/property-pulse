@@ -4,7 +4,7 @@ import PropertyCard from "@/app/_components/PropertyCard";
 import { getProperties } from "@/app/_libs/requests";
 
 const HomeProperties = async () => {
-  const properties = await getProperties();
+  const { properties } = await getProperties();
 
   const recentProperties = properties
     .sort(() => Math.random() - Math.random())

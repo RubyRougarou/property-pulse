@@ -7,8 +7,22 @@ import cloudinary from "../../../../configs/cloudinary";
 export async function GET(req) {
   try {
     await connectDb();
-    const properties = await Property.find({});
-    return new Response(JSON.stringify(properties), { status: 200 });
+
+    const page = req.nextUrl.searchParams.get("page") || 1;
+    const pageSize = req.nextUrl.searchParams.get("pageSize") || 6;
+
+    const skip = (page - 1) * pageSize;
+
+    const totalProperties = await Property.countDocuments();
+    // for pagination we add .skip().limit()
+    const properties = await Property.find({}).skip(skip).limit(pageSize);
+
+    const result = {
+      totalProperties,
+      properties,
+    };
+
+    return new Response(JSON.stringify(result), { status: 200 });
   } catch (err) {
     console.log(err);
     return new Response("the worst api route ever!", { status: 500 });
